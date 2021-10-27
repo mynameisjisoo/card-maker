@@ -1,0 +1,57 @@
+@value makerGreen from '/src/common/colors.css';
+@value makerWhite from '/src/common/colors.css';
+@value makerYellow from '/src/common/colors.css';
+@value makerShadow from '/src/common/colors.css';
+@value baseSpace from '/src/common/size.css';
+@value borderRadius from '/src/common/size.css';
+
+.container {
+  /* border: solid; */
+  box-shadow: 5px 5px 5px makerShadow;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 25rem;
+}
+
+.header {
+  padding-top: baseSpace;
+}
+
+.header,
+.footer {
+  background-color: makerGreen;
+  color: makerWhite;
+}
+
+.logo {
+  width: 70px;
+}
+
+.title {
+  margin: 0 0 baseSpace 0;
+}
+
+.login {
+  margin-bottom: 16px;
+}
+
+.loginBtn {
+  width: 95%;
+  font-size: calc(baseSpace * 2);
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  border-radius: borderRadius;
+  border: makerGreen solid;
+  padding: baseSpace;
+  margin: calc(baseSpace * 0.5) baseSpace;
+}
+
+.loginBtn:hover {
+  background-color: makerYellow;
+}
+
+.footer {
+  padding: calc(baseSpace * 2) 0;
+}
