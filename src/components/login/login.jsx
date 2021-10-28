@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginGoogle from './login-google';
+
 import styles from './login.module.css';
 
 const Login = props => {

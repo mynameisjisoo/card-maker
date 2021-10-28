@@ -1,7 +1,20 @@
-import React from 'react';
+import 'firebase/firestore';
+import 'firebase/auth';
+import { signInWithGoogle } from './firebase/firebase_config';
+import { auth } from './firebase/firebase_config';
 
-const LoginGoogle = props => {
-  return <button>google</button>;
-};
+function GoogleSignin(props) {
+  auth.onAuthStatechanged(user => {
+    if (user !== null) {
+      console.log('로그인');
+    }
+  });
 
-export default LoginGoogle;
+  return (
+    <div>
+      <button onClick={signInWithGoogle}>google</button>
+    </div>
+  );
+}
+
+export default GoogleSignin;
