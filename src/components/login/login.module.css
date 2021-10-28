@@ -5,53 +5,39 @@
 @value baseSpace from '/src/common/size.css';
 @value borderRadius from '/src/common/size.css';
 
-.container {
-  /* border: solid; */
-  box-shadow: 5px 5px 5px makerShadow;
+.login {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 25rem;
+  justify-content: center;
+  width: 30em;
+  background-color: makerWhite;
 }
 
-.header {
-  padding-top: baseSpace;
+.list {
+  padding-left: 0;
+  width: 100%;
+  /* display: flex;
+  flex-direction: column; */
+  list-style: none;
+  padding: 0.5rem;
 }
 
-.header,
-.footer {
-  background-color: makerGreen;
-  color: makerWhite;
+.item {
+  margin-bottom: 0.5em;
 }
 
-.logo {
-  width: 70px;
-}
-
-.title {
-  margin: 0 0 baseSpace 0;
-}
-
-.login {
-  margin-bottom: 16px;
-}
-
-.loginBtn {
-  width: 95%;
-  font-size: calc(baseSpace * 2);
+.button {
+  width: 100%;
+  height: 2.5em;
+  font-size: 1.2rem;
   background-color: transparent;
-  outline: none;
+  outline: 0;
   cursor: pointer;
-  border-radius: borderRadius;
+  border-radius: 1.2rem;
   border: makerGreen solid;
-  padding: baseSpace;
-  margin: calc(baseSpace * 0.5) baseSpace;
 }
 
-.loginBtn:hover {
+.button:hover {
   background-color: makerYellow;
-}
-
-.footer {
-  padding: calc(baseSpace * 2) 0;
 }

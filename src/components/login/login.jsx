@@ -1,22 +1,39 @@
 import React from 'react';
-
+import Footer from '../footer/footer';
+import Header from '../header/header';
 import styles from './login.module.css';
 
-const Login = props => {
+const Login = ({ authService }) => {
+  const onLogin = event => {
+    authService
+      .login(event.currentTarget.textContent) //
+      .then(console.log);
+  };
   return (
-    <div className={styles.container}>
-      <header className={styles.header}>
-        <img src='/images/logo.png' alt='logo' className={styles.logo} />
-        <h2 className={styles.title}>Business Card Maker</h2>
-      </header>
-      <section className={styles.login}>
-        <h2>Login</h2>
-        <button className={styles.loginBtn}>Email Link</button>
-        <button className={styles.loginBtn}>Google</button>
-        <button className={styles.loginBtn}>Github</button>
+    <section className={styles.login}>
+      <Header />
+      <section>
+        <h1>Login</h1>
+        <ul className={styles.list}>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLogin}>
+              Google
+            </button>
+          </li>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLogin}>
+              Github
+            </button>
+          </li>
+          <li className={styles.item}>
+            <button className={styles.button} onClick={onLogin}>
+              Email
+            </button>
+          </li>
+        </ul>
       </section>
-      <footer className={styles.footer}>Code your dream</footer>
-    </div>
+      <Footer />
+    </section>
   );
 };
 
