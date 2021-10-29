@@ -1,33 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
 
 const Login = ({ authService }) => {
-  const [isLogin, setIsLogin] = useState(false);
-
+  const history = useHistory();
+  const goToMaker = userId => {
+    history.push({
+      pathname: '/maker',
+      state: { id: userId }
+    });
+  };
   const onLogin = event => {
     authService
       .login(event.currentTarget.textContent) //
-      .then(setIsLogin(true))
-      .then(routeChange);
+      .then(data => goToMaker(data.user.uid));
   };
 
-  const routeChange = () => {};
-
-  let onLogout = false;
-  if (isLogin === true) {
-    onLogout = () => {
-      authService
-        .logout() //
-        .then(setIsLogin(false))
-        .then((onLogout = false));
-    };
-  }
+  useEffect(() => {
+    authService.onAuthChange(user => {
+      user && goToMaker(user.uid); //user가 있다면(로그인을 하면) uid를 갖고 maker로 감 (로그인정보 기억)
+    });
+  });
 
   return (
     <section className={styles.login}>
-      <Header onLogout={onLogout} />
+      <Header />
       <section>
         <h1>Login</h1>
         <ul className={styles.list}>
