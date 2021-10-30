@@ -1,8 +1,9 @@
-@value makerGreen, makerWhite, makerShadow from '/src/common/colors.css';
+@value makerGreen, makerWhite, makerShadow, makerLightGrey from '/src/common/colors.css';
 
 .editor {
-  background-color: seashell;
   flex-basis: 50%;
+  border-right: solid 1px makerLightGrey;
+  padding: 0.5em 2em;
 }
 
 .title {

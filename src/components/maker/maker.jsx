@@ -34,7 +34,7 @@ const Maker = ({ authService }) => {
       id: '3',
       name: 'Tori',
       company: 'Team Tori',
-      theme: 'Dark',
+      theme: 'dark',
       title: 'Product Manager',
       email: 'tori@gmail.com',
       message: 'I am a smartest dog',

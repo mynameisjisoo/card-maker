@@ -12,7 +12,11 @@
   color: makerGreen;
 }
 .cards {
-  /* display: flex; */
-  padding: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0.5em 2em;
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

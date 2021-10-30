@@ -11,9 +11,9 @@ const Editor = ({ cards }) => {
     <section className={styles.editor}>
       <h1 className={styles.title}>Card Maker</h1>
       {cards.map(card => (
-        <li key={card.id}>
-          <CardEditForm card={card} handleAdd={handleAdd} />
-        </li>
+        <CardEditForm card={card} />
+        // <li key={card.id}>
+        // </li>
       ))}
     </section>
   );
