@@ -1,0 +1,29 @@
+@value mediaQuery from '/src/common/size.css';
+@value makerWhite from '/src/common/colors.css';
+
+.maker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  /* justify-content: space-around; */
+}
+
+/* .cardMaker {
+  background-color: makerWhite;
+}
+
+.cardPreview {
+  background-color: makerWhite;
+} */
+
+@media screen and (max-width: mediaQuery) {
+  .container {
+    flex-direction: column;
+  }
+}
