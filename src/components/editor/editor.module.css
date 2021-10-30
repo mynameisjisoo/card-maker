@@ -1,14 +1,17 @@
-@value makerGreen from '/src/common/colors.css';
+@value makerGreen, makerWhite, makerShadow from '/src/common/colors.css';
 
 .editor {
-  background-color: white;
+  background-color: seashell;
   flex-basis: 50%;
 }
 
 .title {
-  background-color: tomato;
   /* width: 100%; */
   text-align: center;
   margin-bottom: 1em;
   color: makerGreen;
+}
+
+li {
+  width: 100%;
 }

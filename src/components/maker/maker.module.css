@@ -11,16 +11,7 @@
 .container {
   flex: 1;
   display: flex;
-  /* justify-content: space-around; */
 }
-
-/* .cardMaker {
-  background-color: makerWhite;
-}
-
-.cardPreview {
-  background-color: makerWhite;
-} */
 
 @media screen and (max-width: mediaQuery) {
   .container {

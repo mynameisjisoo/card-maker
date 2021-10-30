@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';

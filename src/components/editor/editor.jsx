@@ -1,11 +1,20 @@
 import React from 'react';
+import CardEditForm from '../card_edit_form/card_edit_form';
 import styles from './editor.module.css';
 
-const Editor = props => {
+const Editor = ({ cards }) => {
+  const handleAdd = () => {
+    console.log('요요요    ');
+  };
+
   return (
     <section className={styles.editor}>
       <h1 className={styles.title}>Card Maker</h1>
-      dsdasa
+      {cards.map(card => (
+        <li key={card.id}>
+          <CardEditForm card={card} handleAdd={handleAdd} />
+        </li>
+      ))}
     </section>
   );
 };

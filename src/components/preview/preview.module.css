@@ -1,3 +1,18 @@
+@value makerGreen, makerWhite from '/src/common/colors.css';
+
 .preview {
+  background-color: makerWhite;
   flex-basis: 50%;
+}
+
+.title {
+  /* width: 100%; */
+  text-align: center;
+  margin-bottom: 1em;
+  color: makerGreen;
+}
+.cards {
+  /* display: flex; */
+  padding: 0;
+  list-style: none;
 }
