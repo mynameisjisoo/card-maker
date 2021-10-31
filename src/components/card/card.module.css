@@ -3,7 +3,7 @@
 .card {
   display: flex;
   align-items: center;
-  padding: 0.2em;
+  padding: 0.2em 0;
   margin-bottom: 0.5em;
   border-radius: 1em;
   width: 100%;
@@ -58,7 +58,7 @@
 .company::after {
   content: '';
   display: block;
-  width: 100%;
+  width: 90%;
   height: 2px;
   background-color: makerWheat;
   transform: translateY(0.5em);

@@ -7,7 +7,7 @@ const Card = ({ card }) => {
     card;
   const url = fileURL || DEFAULT_IMAGE;
   return (
-    <li key={card.id} className={`${styles.card} ${getStyles(theme)}`}>
+    <li className={`${styles.card} ${getStyles(theme)}`}>
       <img className={styles.avatar} src={url} alt='profile photo' />
       <div className={styles.info}>
         <h1 className={styles.name}>name</h1>
