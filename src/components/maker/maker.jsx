@@ -58,15 +58,10 @@ const Maker = ({ authService }) => {
     //useEffect는 마운트될때만 호출되고 컴포넌트 상태가 변경되면 전달해놓은 콜백함수가 실행?
   });
 
-  // const addCard = newCard => {
-  //   const updated = [...cards, newCard];
-  //   setCards(updated);
-  // };
-
   const createOfUpdateCard = card => {
     setCards(cards => {
       const updated = { ...cards };
-      updated[card.id] = card;
+      updated[card.id] = card; //card의 id를 키로, card자체를 값으로 저장
       return updated;
     });
 
@@ -83,6 +78,7 @@ const Maker = ({ authService }) => {
       return updated;
     });
   };
+
   return (
     <section className={styles.maker}>
       <Header onLogout={onLogout} />

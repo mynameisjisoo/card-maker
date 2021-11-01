@@ -8,9 +8,8 @@ const Editor = ({ cards, addCard, updateCard, deleteCard }) => {
     <section className={styles.editor}>
       <h1 className={styles.title}>Card Maker</h1>
       {Object.keys(cards).map(
-        (
-          key //cards가 배열형태가 아니기때문에 Object.keys()이용해서 cards의 키를 받아옴
-        ) => (
+        //cards가 배열형태가 아니기때문에 Object.keys()이용해서 cards의 키를 받아옴
+        key => (
           <CardEditForm
             key={key}
             card={cards[key]}

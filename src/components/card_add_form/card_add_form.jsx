@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import cld from '../../service/cloudinary';
 import Button from '../button/button';
 import ImageFileInput from '../image_file_input/image_file_input';
 import styles from './card_add_form.module.css';
@@ -29,6 +30,7 @@ const CardAddForm = ({ onAdd }) => {
     formRef.current.reset();
   };
 
+  const fileName = 'temp';
   return (
     <form ref={formRef} className={styles.form}>
       <input
@@ -77,7 +79,7 @@ const CardAddForm = ({ onAdd }) => {
         placeholder='Message'
       ></textarea>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <ImageFileInput fileName={fileName} />
       </div>
       <Button name='Add' onClick={onSubmit} />
     </form>

@@ -1143,6 +1143,11 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
+"@cloudinary/url-gen@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@cloudinary/url-gen/-/url-gen-1.1.0.tgz#3277feb5fb472f32b9f167e9c32e617f6d9b3665"
+  integrity sha512-/tm+wDdZUFQrX+kUNKFhKMUYIt1XIGckfSCffW40KypeyiRvgvJN/gsadP+OvlI1UtBeqqaN+3jnwNDCoIs/0A==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

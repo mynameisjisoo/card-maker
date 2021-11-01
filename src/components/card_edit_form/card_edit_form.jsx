@@ -8,17 +8,24 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
     card;
 
   const handleChange = event => {
+    event.preventDefault();
     if (event.currentTarget == null) {
       return;
     }
-    event.preventDefault();
+
     updateCard({
       ...card,
       [event.currentTarget.name]: event.currentTarget.value
     });
   };
-  const onSubmit = event => {
+
+  const onSubmit = () => {
     deleteCard(card);
+  };
+
+  const selectFile = event => {
+    event.preventDefault();
+    console.log('e');
   };
 
   return (
@@ -69,7 +76,7 @@ const CardEditForm = ({ card, updateCard, deleteCard }) => {
         onChange={handleChange}
       ></textarea>
       <div className={styles.fileInput}>
-        <ImageFileInput />
+        <ImageFileInput event={EventTarget} onClick={selectFile} />
       </div>
       <Button name='Delete' onClick={onSubmit} />
     </form>
