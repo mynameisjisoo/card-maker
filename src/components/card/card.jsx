@@ -10,11 +10,11 @@ const Card = ({ card }) => {
     <li className={`${styles.card} ${getStyles(theme)}`}>
       <img className={styles.avatar} src={url} alt='profile photo' />
       <div className={styles.info}>
-        <h1 className={styles.name}>name</h1>
-        <p className={styles.company}>company</p>
-        <p className={styles.title}>title</p>
-        <p className={styles.email}>email</p>
-        <p className={styles.message}>message</p>
+        <h1 className={styles.name}>{name}</h1>
+        <p className={styles.company}>{company}</p>
+        <p className={styles.title}>{title}</p>
+        <p className={styles.email}>{email}</p>
+        <p className={styles.message}>{message}</p>
       </div>
     </li>
   );
