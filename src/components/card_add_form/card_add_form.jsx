@@ -25,10 +25,8 @@ const CardAddForm = ({ onAdd }) => {
       fileName: '',
       fileURL: ''
     };
-
-    formRef.current.reset();
-
     onAdd(newCard);
+    formRef.current.reset();
   };
 
   return (
