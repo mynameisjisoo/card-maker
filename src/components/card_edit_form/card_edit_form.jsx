@@ -9,8 +9,7 @@ const CardEditForm = ({
   deleteCard,
   selectImage
 }) => {
-  const { name, company, title, email, message, theme, fileName, fileURL } =
-    card;
+  const { name, company, title, email, message, theme, fileName } = card;
 
   const handleChange = event => {
     event.preventDefault();
