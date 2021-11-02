@@ -28,10 +28,12 @@ const CardEditForm = ({
     deleteCard(card);
   };
 
-  const onSelect = (url, name) => {
-    console.log(url);
-    console.log(name);
-    selectImage(url, name);
+  const onFileChange = file => {
+    updateCard({
+      ...card,
+      fileName: file.name,
+      fileURL: file.url
+    });
   };
   return (
     <form className={styles.form}>
@@ -81,7 +83,7 @@ const CardEditForm = ({
         onChange={handleChange}
       ></textarea>
       <div className={styles.fileInput}>
-        <FileInput />
+        <FileInput name={fileName} onFileChange={onFileChange} />
       </div>
       <Button name='Delete' onClick={onSubmit} />
     </form>
