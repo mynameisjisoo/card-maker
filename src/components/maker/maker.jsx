@@ -16,8 +16,8 @@ const Maker = ({ FileInput, authService }) => {
       title: 'Frontend Engineer',
       email: 'devjisoolee@gmail.com',
       message: 'go for it',
-      fileName: 'jisoofile',
-      fileURL: 'jisoo.png'
+      fileName: '',
+      fileURL: ''
     },
     2: {
       id: '2',
@@ -27,8 +27,8 @@ const Maker = ({ FileInput, authService }) => {
       title: 'designer',
       email: 'cutiepuppy@cheetah.com',
       message: 'I am a cutest dog',
-      fileName: 'cheetahfile',
-      fileURL: 'cheetah.png'
+      fileName: '',
+      fileURL: ''
     },
     3: {
       id: '3',
@@ -38,7 +38,7 @@ const Maker = ({ FileInput, authService }) => {
       title: 'Product Manager',
       email: 'tori@gmail.com',
       message: 'I am a smartest dog',
-      fileName: 'torifile',
+      fileName: '',
       fileURL: null
     }
   });
