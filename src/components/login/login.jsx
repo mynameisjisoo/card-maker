@@ -4,7 +4,7 @@ import Footer from '../footer/footer';
 import Header from '../header/header';
 import styles from './login.module.css';
 
-const Login = ({ authService }) => {
+const Login = ({ authService, databaseService }) => {
   const history = useHistory();
   const goToMaker = userId => {
     history.push({

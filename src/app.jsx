@@ -3,7 +3,7 @@ import styles from './app.module.css';
 import Login from './components/login/login';
 import Maker from './components/maker/maker';
 
-function App({ FileInput, authService }) {
+function App({ FileInput, authService, databaseService }) {
   return (
     <div className={styles.login}>
       <BrowserRouter>

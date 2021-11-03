@@ -6,6 +6,8 @@
   width: 100%;
   background-color: makerGreen;
   text-align: center;
+  position: sticky;
+  bottom: 0;
 }
 
 .title {

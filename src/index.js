@@ -5,6 +5,7 @@ import App from './app';
 import AuthService from './service/auth_service';
 import ImageUploader from './service/image_uploader';
 import ImageFileInput from './components/image_file_input/image_file_input';
+import DatabaseService from './service/database_service';
 
 const authService = new AuthService();
 const imageUploader = new ImageUploader();
@@ -20,10 +21,15 @@ const FileInput = props => (
     3) 컴포넌트 prop인 경우 보통 대문자로 시작
 */
 }
+const databaseService = new DatabaseService();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App authService={authService} FileInput={FileInput} />
+    <App
+      authService={authService}
+      FileInput={FileInput}
+      databaseService={databaseService}
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );
