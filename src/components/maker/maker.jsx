@@ -17,7 +17,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     authService.logout();
   };
 
-  //싱크관련
+  //about sync
   useEffect(() => {
     if (!userId) {
       return;
@@ -27,9 +27,9 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     });
     //useEffect내에서 return 하면 페이지가 언마운트될때 리턴에 등록한 콜백함수가 실행됨
     return () => stopSync(); //syncCards 내의 return문 실행
-  }, [userId]);
+  }, [userId, cardRepository]);
 
-  //로그인관련
+  //about login
   useEffect(() => {
     authService.onAuthChange(user => {
       if (user) {
@@ -42,7 +42,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     });
     //onAuthStateChanged에서 auth의 변경 감지할 때 실행될 콜백함수 전달
     //useEffect는 마운트될때만 호출되고 컴포넌트 상태가 변경되면 전달해놓은 콜백함수가 실행?
-  });
+  }, [authService, history]);
 
   const createOfUpdateCard = card => {
     setCards(cards => {
