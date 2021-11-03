@@ -10,11 +10,6 @@
   background-color: makerWhite;
 }
 
-.header {
-  position: sticky;
-  top: 0;
-}
-
 .container {
   flex: 1;
   display: flex;

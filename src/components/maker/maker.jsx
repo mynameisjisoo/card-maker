@@ -10,13 +10,26 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const history = useHistory();
   const historyState = history?.location?.state; //로그인컴포넌트 통해서 왔으면 값이 있고 다른 컴포넌트 통한다면 값이 없음
   const [userId, setUserId] = useState(historyState && historyState.id); //historystate가 있으면 그것의 id (로그인통해서 온 경우?)
-  const [cards, setCards] = useState({});
+  const [cards, setCards] = useState({}); //database
   const [userName, setUserName] = useState([]);
 
   const onLogout = () => {
     authService.logout();
   };
 
+  //싱크관련
+  useEffect(() => {
+    if (!userId) {
+      return;
+    }
+    const stopSync = cardRepository.syncCards(userId, cards => {
+      setCards(cards);
+    });
+    //useEffect내에서 return 하면 페이지가 언마운트될때 리턴에 등록한 콜백함수가 실행됨
+    return () => stopSync(); //syncCards 내의 return문 실행
+  }, [userId]);
+
+  //로그인관련
   useEffect(() => {
     authService.onAuthChange(user => {
       if (user) {
@@ -55,9 +68,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
 
   return (
     <section className={styles.maker}>
-      <div className={styles.header}>
-        <Header onLogout={onLogout} userName={userName} />
-      </div>
+      <Header onLogout={onLogout} userName={userName} />
       <div className={styles.container}>
         <Editor
           FileInput={FileInput}
@@ -69,7 +80,6 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
         <Preview cards={cards} />
       </div>
       <Footer />
-      <div className={styles.footer}></div>
     </section>
   );
 };
