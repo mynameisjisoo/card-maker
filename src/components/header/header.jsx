@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './header.module.css';
-const Header = ({ onLogout }) => {
+const Header = ({ onLogout, userName }) => {
   return (
     <header className={styles.header}>
       {onLogout && (
@@ -10,6 +10,7 @@ const Header = ({ onLogout }) => {
       )}
       <img src='/images/logo.png' alt='logo' className={styles.logo} />
       <h1 className={styles.title}>Business Card Maker</h1>
+      {userName && <p className={styles.userName}>Welcome {userName}😀</p>}
     </header>
   );
 };

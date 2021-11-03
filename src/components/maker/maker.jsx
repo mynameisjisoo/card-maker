@@ -6,51 +6,24 @@ import styles from './maker.module.css';
 import Preview from '../preview/preview';
 import Editor from '../editor/editor';
 
-const Maker = ({ FileInput, authService }) => {
-  const [cards, setCards] = useState({
-    1: {
-      id: '1',
-      name: 'Jisoo',
-      company: 'Team Jisoo',
-      theme: 'light',
-      title: 'Frontend Engineer',
-      email: 'devjisoolee@gmail.com',
-      message: 'go for it',
-      fileName: '',
-      fileURL: ''
-    },
-    2: {
-      id: '2',
-      name: 'Cheetah',
-      company: 'Team Cheetah',
-      theme: 'colorful',
-      title: 'designer',
-      email: 'cutiepuppy@cheetah.com',
-      message: 'I am a cutest dog',
-      fileName: '',
-      fileURL: ''
-    },
-    3: {
-      id: '3',
-      name: 'Tori',
-      company: 'Team Tori',
-      theme: 'dark',
-      title: 'Product Manager',
-      email: 'tori@gmail.com',
-      message: 'I am a smartest dog',
-      fileName: '',
-      fileURL: null
-    }
-  });
-
+const Maker = ({ FileInput, authService, cardRepository }) => {
   const history = useHistory();
+  const historyState = history?.location?.state; //로그인컴포넌트 통해서 왔으면 값이 있고 다른 컴포넌트 통한다면 값이 없음
+  const [userId, setUserId] = useState(historyState && historyState.id); //historystate가 있으면 그것의 id (로그인통해서 온 경우?)
+  const [cards, setCards] = useState({});
+  const [userName, setUserName] = useState([]);
+
   const onLogout = () => {
     authService.logout();
   };
 
   useEffect(() => {
     authService.onAuthChange(user => {
-      if (!user) {
+      if (user) {
+        setUserId(user.uid);
+        setUserName(user.displayName);
+      } else {
+        //사용자가 없다면
         history.push('/');
       }
     });
@@ -64,11 +37,11 @@ const Maker = ({ FileInput, authService }) => {
       updated[card.id] = card; //card의 id를 키로, card자체를 값으로 저장
       return updated;
     });
-
     //(state를 업데이트할 때) 이전 상태를 배경으로 해서 변경된 값을 업데이트할 때는
     //컴포넌트 안의 스테이트를 이용해서 업뎃하면 업뎃하는 시점에 있는 스테이트가 오래된 것일 수 있음
     //즉, 동기적으로 할수 없을 때가 있음 그래서 이전값을 받아서 새로운 값을 하는 콜백함수를 이용
     //=> setCards를 부르는 시점의 cards를 복사헤서 새로 업데이트 되는 card 변경헤줌
+    cardRepository.saveCard(userId, card);
   };
 
   const deleteCard = card => {
@@ -77,12 +50,13 @@ const Maker = ({ FileInput, authService }) => {
       delete updated[card.id];
       return updated;
     });
+    cardRepository.removeCard(userId, card);
   };
 
   return (
     <section className={styles.maker}>
       <div className={styles.header}>
-        <Header onLogout={onLogout} />
+        <Header onLogout={onLogout} userName={userName} />
       </div>
       <div className={styles.container}>
         <Editor
