@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Header from '../header/header';
 import Footer from '../footer/footer';
@@ -13,9 +13,10 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
   const [cards, setCards] = useState({}); //database
   const [userName, setUserName] = useState([]);
 
-  const onLogout = () => {
+  //다른 자식 컴포넌트로 콜백함수를 전달하는 지역변수는 useCallback을 이용해서 캐시가 계속 만들어지지 않도록 하기!
+  const onLogout = useCallback(() => {
     authService.logout();
-  };
+  }, [authService]); //(dependency)useCallback으로 동일한 함수를 캐시를 이용해서 쓰지만 authService에 변화가 생긴다면 새로운 콜백 만듦
 
   //about sync
   useEffect(() => {

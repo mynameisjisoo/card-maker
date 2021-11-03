@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styles from './header.module.css';
-const Header = ({ onLogout, userName }) => {
+
+//onLogout을 useCallback으로 작성해야 memo의 효과가 있음
+const Header = memo(({ onLogout, userName }) => {
   return (
     <header className={styles.header}>
       {onLogout && (
@@ -13,6 +15,6 @@ const Header = ({ onLogout, userName }) => {
       {userName && <p className={styles.userName}>Welcome {userName}😀</p>}
     </header>
   );
-};
+});
 
 export default Header;
