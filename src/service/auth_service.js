@@ -5,7 +5,7 @@ class AuthService {
   login(providerName) {
     // github나 google등
     const authProvider = this.getProvider(providerName);
-    return firebaseAuth.signInWithPopup(firebaseAuth, authProvider);
+    return signInWithPopup(firebaseAuth, authProvider);
   }
 
   logout() {
