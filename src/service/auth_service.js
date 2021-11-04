@@ -1,14 +1,15 @@
 import { firebaseAuth, githubProvider, googleProvider } from './firebase';
+import { getAuth, signInWithPopup } from 'firebase/auth';
 
 class AuthService {
   login(providerName) {
     // github나 google등
     const authProvider = this.getProvider(providerName);
-    return firebaseAuth.signInWithPopup(authProvider);
+    return firebaseAuth.signInWithPopup(firebaseAuth, authProvider);
   }
 
   logout() {
-    return firebaseAuth.signOut();
+    return firebaseAuth.signOut().then(alert('logout'));
   }
 
   onAuthChange(onUserChanged) {
