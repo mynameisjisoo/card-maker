@@ -7,11 +7,11 @@ import Preview from '../preview/preview';
 import Editor from '../editor/editor';
 
 const Maker = ({ FileInput, authService, cardRepository }) => {
-  const history = useHistory();
-  const historyState = history?.location?.state; //로그인컴포넌트 통해서 왔으면 값이 있고 다른 컴포넌트 통한다면 값이 없음
-  const [userId, setUserId] = useState(historyState && historyState.id); //historystate가 있으면 그것의 id (로그인통해서 온 경우?)
   const [cards, setCards] = useState({}); //database
   const [userName, setUserName] = useState([]);
+  const history = useHistory();
+  const historyState = useHistory().state; //로그인컴포넌트 통해서 왔으면 값이 있고 다른 컴포넌트 통한다면 값이 없음
+  const [userId, setUserId] = useState(historyState && historyState.id); //historystate가 있으면 그것의 id (로그인통해서 온 경우?)
 
   //다른 자식 컴포넌트로 콜백함수를 전달하는 지역변수는 useCallback을 이용해서 캐시가 계속 만들어지지 않도록 하기!
   const onLogout = useCallback(() => {

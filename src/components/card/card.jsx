@@ -2,6 +2,7 @@ import React, { memo } from 'react';
 import styles from './card.module.css';
 
 const DEFAULT_IMAGE = '/images/default_logo.png';
+
 const Card = memo(({ card }) => {
   const { name, company, title, email, message, theme, fileURL } = card;
   const url = fileURL || DEFAULT_IMAGE;
@@ -31,7 +32,8 @@ function getStyles(theme) {
       return styles.colorful;
 
     default:
-      throw new Error(`unknown theme : ${theme}`);
+      return styles.colorful;
+    // throw new Error(`unknown theme : ${theme}`);
   }
 }
 
