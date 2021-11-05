@@ -1,12 +1,16 @@
-import { getAuth, RecaptchaVerifier } from '@firebase/auth';
+import {
+  getAuth,
+  RecaptchaVerifier,
+  signInWithPhoneNumber
+} from '@firebase/auth';
 import React, { useEffect, useRef } from 'react';
 import { firebaseApp } from '../../service/firebase';
 
 const LoginPhoneNumber = () => {
   const auth = getAuth();
   auth.useDeviceLanguage();
-
   useEffect(() => {
+    console.log('useeffect');
     window.recaptchaVerifier = new RecaptchaVerifier(
       'recaptcha-container',
       {
@@ -21,12 +25,24 @@ const LoginPhoneNumber = () => {
     );
   });
 
+  const appVerifier = window.recaptchaVerifier;
+  console.log(appVerifier);
   const refNumber = useRef();
+  auth.languageCode = 'ko';
+
   const onSubmitPhoneNumber = event => {
     event.preventDefault();
     const phoneNumber = refNumber.current.value.replace(/ /g, '');
-    console.log(phoneNumber);
+    signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier) //
+      .then(confirmationResult => {
+        console.log(confirmationResult);
+
+        alert('인증요청');
+        window.confirmationResult = confirmationResult;
+      })
+      .catch(error => console.log(error));
   };
+
   return (
     <>
       <form>

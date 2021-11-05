@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
+import LoginPhoneNumber from '../login_phone_number/login_phone_number';
 import styles from './login.module.css';
 
 const Login = ({ authService, databaseService }) => {
@@ -12,10 +13,14 @@ const Login = ({ authService, databaseService }) => {
       state: { id: userId }
     });
   };
+  const [loginPhoneNumber, setLoginPhoneNumber] = useState(false);
   const onLogin = event => {
-    authService
-      .login(event.currentTarget.textContent) //
-      .then(data => goToMaker(data.user.uid));
+    const loginMethod = event.currentTarget.textContent;
+    if (loginMethod === 'Phone number') {
+      setLoginPhoneNumber(true);
+    } else {
+      authService.login(loginMethod).then(data => goToMaker(data.user.uid));
+    }
   };
 
   useEffect(() => {
@@ -27,26 +32,29 @@ const Login = ({ authService, databaseService }) => {
   return (
     <section className={styles.login}>
       <Header />
-      <section>
-        <h1>Login</h1>
-        <ul className={styles.list}>
-          <li className={styles.item}>
-            <button className={styles.button} onClick={onLogin}>
-              Google
-            </button>
-          </li>
-          <li className={styles.item}>
-            <button className={styles.button} onClick={onLogin}>
-              Github
-            </button>
-          </li>
-          <li className={styles.item}>
-            <button className={styles.button} onClick={onLogin}>
-              Email
-            </button>
-          </li>
-        </ul>
-      </section>
+      {loginPhoneNumber && <LoginPhoneNumber />}
+      {!loginPhoneNumber && (
+        <section>
+          <h1>Login</h1>
+          <ul className={styles.list}>
+            <li className={styles.item}>
+              <button className={styles.button} onClick={onLogin}>
+                Google
+              </button>
+            </li>
+            <li className={styles.item}>
+              <button className={styles.button} onClick={onLogin}>
+                Github
+              </button>
+            </li>
+            <li className={styles.item}>
+              <button className={styles.button} onClick={onLogin}>
+                Phone number
+              </button>
+            </li>
+          </ul>
+        </section>
+      )}
       <Footer />
     </section>
   );

@@ -9,6 +9,7 @@ import CardRepository from './service/card_repository';
 import { firebaseApp } from './service/firebase';
 
 const authService = new AuthService(firebaseApp);
+
 const cardRepository = new CardRepository(firebaseApp);
 const imageUploader = new ImageUploader();
 const FileInput = memo(props => (
