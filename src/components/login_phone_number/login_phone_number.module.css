@@ -1,0 +1,44 @@
+@value makerGreen, makerYellow from '/src/common/colors.css';
+
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.notification {
+  margin-top: 0;
+}
+
+.phoneNumber,
+.verifyNumber {
+  padding: 0.5rem;
+  margin: 0 0.5rem;
+  border-radius: 0.5rem;
+  outline: 0;
+  border: solid makerGreen;
+  font-size: 1.2rem;
+  width: 60%;
+}
+
+.button {
+  outline: 0;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  font-weight: bolder;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: makerYellow;
+}
