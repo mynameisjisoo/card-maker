@@ -7,6 +7,7 @@ import ImageUploader from './service/image_uploader';
 import ImageFileInput from './components/image_file_input/image_file_input';
 import CardRepository from './service/card_repository';
 import { firebaseApp } from './service/firebase';
+import '@fortawesome/fontawesome-free/js/all.js';
 
 const authService = new AuthService(firebaseApp);
 

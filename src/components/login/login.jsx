@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import Footer from '../footer/footer';
 import Header from '../header/header';
-import LoginPhoneNumber from '../login_phone_number/login_phone_number';
+import LoginPhoneNumber from './login_phone_number/login_phone_number';
 import styles from './login.module.css';
 
 const Login = ({ authService, databaseService }) => {
@@ -39,17 +39,18 @@ const Login = ({ authService, databaseService }) => {
           <ul className={styles.list}>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
-                Google
+                Google<i className={`fab fa-google ${styles.google}`}></i>
               </button>
             </li>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
-                Github
+                Github<i className={`fab fa-github ${styles.github}`}></i>
               </button>
             </li>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
                 Phone number
+                <i className={`fas fa-phone-alt ${styles.phone}`}></i>
               </button>
             </li>
           </ul>
