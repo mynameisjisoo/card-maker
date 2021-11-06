@@ -10,15 +10,13 @@ const LoginPhoneNumber = () => {
   const auth = getAuth();
   auth.useDeviceLanguage();
   useEffect(() => {
-    console.log('useeffect');
+    //reCAPTCHA 자동등록방지 객체
     window.recaptchaVerifier = new RecaptchaVerifier(
-      'recaptcha-container',
+      'sign-in-button',
       {
         size: 'invisible',
         callback: response => {
-          console.log(response);
           // reCAPTCHA solved, allow signInWithPhoneNumber.
-          //   onSignInSubmit();
         }
       },
       auth
@@ -31,37 +29,48 @@ const LoginPhoneNumber = () => {
 
   const onSubmitPhoneNumber = event => {
     const appVerifier = window.recaptchaVerifier;
-    console.log(appVerifier);
     event.preventDefault();
     const phoneNumber = refNumber.current.value.replace(/ /g, '');
     signInWithPhoneNumber(auth, `+${phoneNumber}`, appVerifier) //
       .then(confirmationResult => {
-        console.log(confirmationResult);
-
-        // alert('인증요청');
         window.confirmationResult = confirmationResult;
+        alert('인증요청');
       })
-      .catch(error => console.log(error));
+      .catch(error => alertErrorMessage(error));
   };
 
   const onSubmitCode = event => {
     event.preventDefault();
-    console.log(refCode);
     const authCode = refCode.current.value.replace(/ /g, '');
     window.confirmationResult
       .confirm(authCode)
-      .then(result => {
-        console.log(result);
-        alert('인증완료');
-      })
-      .catch(error => console.log(error));
+      .then(alert('인증완료'))
+      .catch(error => alertErrorMessage(error));
   };
 
+  const alertErrorMessage = error => {
+    switch (error.code) {
+      case 'auth/invalid-verification-code':
+        alert('인증번호가 유효하지 않습니다.');
+        break;
+      case 'auth/invalid-phone-number':
+        alert('전화번호가 유효하지 않습니다.');
+        break;
+      case 'auth/session-expired':
+        alert('인증번호가 만료되었습니다.');
+        break;
+      case 'auth/too-many-requests':
+        alert('잠시 후 다시 시도해 주세요.');
+        break;
+
+      default:
+        console.log(error);
+        break;
+    }
+  };
   return (
     <div className={styles.auth}>
-      <div id='recaptcha-container'>
-        <h1 className={styles.notification}>Please verify your phone number</h1>
-      </div>
+      <h1 className={styles.notification}>Please verify your phone number</h1>
 
       <div className={styles.container}>
         <input
@@ -71,7 +80,11 @@ const LoginPhoneNumber = () => {
           name='phone number'
           placeholder='+82 10 0000 0000'
         />
-        <button className={styles.button} onClick={onSubmitPhoneNumber}>
+        <button
+          id={'sign-in-button'}
+          className={styles.button}
+          onClick={onSubmitPhoneNumber}
+        >
           인증번호 요청
         </button>
       </div>
