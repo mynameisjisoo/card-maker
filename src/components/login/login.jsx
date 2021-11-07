@@ -18,6 +18,13 @@ const Login = ({ authService }) => {
     }
   };
 
+  const goToMaker = userId => {
+    history.push({
+      pathname: '/maker',
+      state: { id: userId }
+    });
+  };
+
   useEffect(() => {
     authService.onAuthChange(user => {
       user && goToMaker(user.uid); //user가 있다면(로그인을 하면) uid를 갖고 maker로 감 (로그인정보 기억)
