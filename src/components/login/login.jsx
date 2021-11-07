@@ -5,14 +5,9 @@ import Header from '../header/header';
 import LoginPhoneNumber from './login_phone_number/login_phone_number';
 import styles from './login.module.css';
 
-const Login = ({ authService, databaseService }) => {
+const Login = ({ authService }) => {
   const history = useHistory();
-  const goToMaker = userId => {
-    history.push({
-      pathname: '/maker',
-      state: { id: userId }
-    });
-  };
+
   const [loginPhoneNumber, setLoginPhoneNumber] = useState(false);
   const onLogin = event => {
     const loginMethod = event.currentTarget.textContent;
