@@ -32,19 +32,19 @@
 ```
 
 <img width="300px" src=https://user-images.githubusercontent.com/84840032/140691548-73b37606-5422-49d1-8ca2-36de40c6e0b9.png>
-<img src=https://user-images.githubusercontent.com/84840032/140691251-4f81b3ae-70ca-4591-b022-cdb64c7cebfc.gif>
+<img width="100%"src=https://user-images.githubusercontent.com/84840032/140691251-4f81b3ae-70ca-4591-b022-cdb64c7cebfc.gif>
 
 ```
 ✨휴대폰번호 인증으로 로그인
 ```
 
-<img src=https://user-images.githubusercontent.com/84840032/140692641-598c54f8-502a-4eb0-b7a0-b8660c4a2d04.gif>
+<img width="100%" src=https://user-images.githubusercontent.com/84840032/140692641-598c54f8-502a-4eb0-b7a0-b8660c4a2d04.gif>
 
 ```
 ✨ 로그인 하고 나면 로그아웃 전까지는 페이지를 벗어나도 로그인이 유지됨 (자동로그인)
 ```
 
-<img src=https://user-images.githubusercontent.com/84840032/140694872-0558734e-34f2-4a82-b738-6552a0cbbeb7.gif>
+<img width="100%" src=https://user-images.githubusercontent.com/84840032/140694872-0558734e-34f2-4a82-b738-6552a0cbbeb7.gif>
 
 ```
 ✨ 로그아웃해도 제작한 명함의 데이터는 firebase realtime database에 저장되어
@@ -53,13 +53,13 @@
 
 #### 🎨Maker
 
-<img src=https://user-images.githubusercontent.com/84840032/140692723-1e1cd43e-173a-4f11-a86f-42a3b2a5ec60.gif>
+<img width="100%" src=https://user-images.githubusercontent.com/84840032/140692723-1e1cd43e-173a-4f11-a86f-42a3b2a5ec60.gif>
 
 ```
 ✨ 왼쪽 form에 정보를 입력 후, Add 버튼을 누르면 오른쪽에 명함 카드 생섬됨
 ```
 
-<img src=https://user-images.githubusercontent.com/84840032/140693826-fa8d9d22-c55c-401c-bf73-0303f1b8787b.gif>
+<img width="100%" src=https://user-images.githubusercontent.com/84840032/140693826-fa8d9d22-c55c-401c-bf73-0303f1b8787b.gif>
 
 ```
 ✨ 생성한 카드를 손쉽게 편집 및 삭제 할 수 있음
