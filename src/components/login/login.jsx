@@ -41,18 +41,18 @@ const Login = ({ authService }) => {
           <ul className={styles.list}>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
-                Google<i className={`fab fa-google ${styles.google}`}></i>
+                Google<i className={`fab fa-google ${styles.icon}`}></i>
               </button>
             </li>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
-                Github<i className={`fab fa-github ${styles.github}`}></i>
+                Github<i className={`fab fa-github ${styles.icon}`}></i>
               </button>
             </li>
             <li className={styles.item}>
               <button className={styles.button} onClick={onLogin}>
                 Phone number
-                <i className={`fas fa-phone-alt ${styles.phone}`}></i>
+                <i className={`fas fa-phone-alt ${styles.icon}`}></i>
               </button>
             </li>
           </ul>

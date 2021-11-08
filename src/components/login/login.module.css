@@ -40,9 +40,7 @@
   background-color: makerYellow;
 }
 
-.google,
-.github,
-.phone {
+.icon {
   color: makerGreen;
   margin-left: 1rem;
 }
