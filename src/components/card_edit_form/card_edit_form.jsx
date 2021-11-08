@@ -18,7 +18,7 @@ const CardEditForm = memo(
     };
 
     const onSubmit = event => {
-      // event.preventDefault();
+      event.preventDefault();
       deleteCard(card);
     };
 

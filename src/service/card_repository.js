@@ -5,13 +5,10 @@ class CardRepository {
     this.db = getDatabase(app);
   }
   saveCard(userId, card) {
-    console.log(userId);
-    console.log(card);
     set(ref(this.db, `${userId}/cards/${card.id}`), card);
   }
 
   removeCard(userId, card) {
-    // firebaseDatabase.ref(`${userId}/cards/${card.id}`).remove();
     remove(ref(this.db, `${userId}/cards/${card.id}`));
   }
 

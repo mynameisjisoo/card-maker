@@ -10,7 +10,6 @@ import { firebaseApp } from './service/firebase';
 import '@fortawesome/fontawesome-free/js/all.js';
 
 const authService = new AuthService(firebaseApp);
-
 const cardRepository = new CardRepository(firebaseApp);
 const imageUploader = new ImageUploader();
 const FileInput = memo(props => (

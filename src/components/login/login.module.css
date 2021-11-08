@@ -17,8 +17,6 @@
 .list {
   padding-left: 0;
   width: 100%;
-  /* display: flex;
-  flex-direction: column; */
   list-style: none;
   padding: 0.5rem;
 }

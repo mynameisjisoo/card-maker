@@ -32,8 +32,7 @@ function getStyles(theme) {
       return styles.colorful;
 
     default:
-      return styles.colorful;
-    // throw new Error(`unknown theme : ${theme}`);
+      throw new Error(`unknown theme : ${theme}`);
   }
 }
 
