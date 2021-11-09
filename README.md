@@ -2,7 +2,7 @@
 
 ## React를 이용한 명함 생성 사이트
 
-### [✨ Demo Link ✨](https://jisoo-youtube.netlify.app/)
+### [✨ Demo Link ✨](https://jisoo-card-maker.netlify.app)
 
 ### 1. 사용한 기술
 
