@@ -45,7 +45,7 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
     //useEffect는 마운트될때만 호출되고 컴포넌트 상태가 변경되면 전달해놓은 콜백함수가 실행?
   }, [authService, history]);
 
-  const createOfUpdateCard = card => {
+  const createOrUpdateCard = card => {
     setCards(cards => {
       const updated = { ...cards };
       updated[card.id] = card; //card의 id를 키로, card자체를 값으로 저장
@@ -74,8 +74,8 @@ const Maker = ({ FileInput, authService, cardRepository }) => {
         <Editor
           FileInput={FileInput}
           cards={cards}
-          addCard={createOfUpdateCard}
-          updateCard={createOfUpdateCard}
+          addCard={createOrUpdateCard}
+          updateCard={createOrUpdateCard}
           deleteCard={deleteCard}
         />
         <Preview cards={cards} />

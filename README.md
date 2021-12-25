@@ -70,7 +70,7 @@
 ```
 🌱 React Router를 이용한 다중페이지 어플리케이션 제작
 🌱 Firebase의 auth(인증)을 이용한 로그인 페이지 구현
-🌱 Firebase의 reartime database 를 이용한 데이터 저장 및 읽어오기
+🌱 Firebase의 realtime database 를 이용한 데이터 저장 및 읽어오기
 🌱 Cloudinary를 이용한 media file 업로드
 🌱 library 이용 시 공식 문서 참고하는 방법
 🌱 Dependency Injection 의 개념
